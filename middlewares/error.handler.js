@@ -13,4 +13,13 @@ function errorHandler(err, req, res, next) {
 }
 
 
-module.exports = { logErrors, errorHandler }
+function boomErrorHandler(err, req, res, next) {
+  if (err.isBoom) {
+    const { output } = err
+    console.log('errorHandler');
+    res.status(output.statusCode).json(output.playload);
+  }
+  next(err)
+}
+
+module.exports = { logErrors, errorHandler, boomErrorHandler }
