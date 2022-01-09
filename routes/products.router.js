@@ -1,6 +1,6 @@
 const { response } = require("express");
 const express = require("express");
-const ProductsService = require('../services/productService');
+const ProductsService = require('../services/product.service');
 
 
 
